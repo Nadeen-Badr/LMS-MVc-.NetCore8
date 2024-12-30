@@ -1,0 +1,46 @@
+@model IEnumerable<LibraryManagementSystem.Models.Book>
+
+<h2>Books</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Category</th>
+            <th>Status</th> 
+            <th>Image</th>
+            <th>Published Year</th>
+            <th>Copies Available</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.ISBN</td>
+                <td>@book.Category.Name</td>
+                <td>@book.Status</td> 
+                <td>
+                    @if (!string.IsNullOrEmpty(book.ImagePath))
+                    {
+                        <img src="@book.ImagePath" alt="Book Image" width="100" />
+                    }
+                </td>
+                <td>@book.PublishedYear</td>
+             
+                <td>
+                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info">Details</a>|
+                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a> |
+                    <a href="@Url.Action("Delete", "Book", new { id = book.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Book")">Create New Book</a>

@@ -1,0 +1,58 @@
+@model LibraryManagementSystem.Models.Book
+
+<h2>Edit Book</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required />
+    </div>
+    <div class="form-group">
+        <label for="Author">Author</label>
+        <input type="text" class="form-control" id="Author" name="Author" value="@Model.Author" required />
+    </div>
+    <div class="form-group">
+        <label for="ISBN">ISBN</label>
+        <input type="text" class="form-control" id="ISBN" name="ISBN" value="@Model.ISBN" required />
+    </div>
+    <div class="form-group">
+        <label for="PublishedYear">Published Year</label>
+        <input type="number" class="form-control" id="PublishedYear" name="PublishedYear" value="@Model.PublishedYear" required />
+    </div>
+<div class="form-group">
+    <label for="CategoryId">Category</label>
+    <select class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(ViewData["Categories"] as IEnumerable<LibraryManagementSystem.Models.Category>, "Id", "Name"))">
+        <option value="">Select a Category</option>
+    </select>
+</div>
+
+
+     <div class="form-group">
+    <label for="Status">Status</label>
+    <select class="form-control" asp-for="Status">
+        <option value="Available" selected="@((Model.Status == "Available") ? "selected" : "")">Available</option>
+        <option value="Rented" selected="@((Model.Status == "Rented") ? "selected" : "")">Rented</option>
+        <option value="Sold" selected="@((Model.Status == "Sold") ? "selected" : "")">Sold</option>
+    </select>
+    </div>
+
+
+     <div class="form-group">
+        <label for="Image">Image</label>
+        <!-- Display existing image if available -->
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <div>
+                <img src="@Model.ImagePath" alt="Book Image" style="max-width: 200px;" />
+                <p>Current Image</p>  <!-- Optional text to show the current image -->
+            </div>
+        }
+
+        <input type="file" class="form-control" id="Image" name="Image" />
+        @if (string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <small class="form-text text-muted">No image selected.</small>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
