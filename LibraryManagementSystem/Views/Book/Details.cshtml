@@ -1,5 +1,10 @@
 @model LibraryManagementSystem.Models.Book
-
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 <h2>Book Details</h2>
 
 <div>
@@ -17,5 +22,36 @@
         <img src="@Model.ImagePath" alt="Book Image" width="100" />
     }
 </div>
+<form method="post" asp-action="Sell" asp-route-id="@Model.Id">
+    @if (Model.Status != "Sold")
+    {
+        <button type="submit" class="btn btn-danger">Sell</button>
+    }
+    else
+    {
+        <button class="btn btn-secondary" disabled>Sold</button>  <!-- Display a disabled button if the book is already sold -->
+    }
+</form>
+@if (Model.Status != "Sold" && Model.Status != "Rented") 
+{
+    <form method="post" asp-action="Rent" asp-route-id="@Model.Id">
+        <div class="form-group">
+            <label for="rentalDuration">Rental Duration (in days)</label>
+            <input type="number" id="rentalDuration" name="rentalDuration" class="form-control" min="1" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Rent</button>
+    </form>
+}
+else
+{
+    <button class="btn btn-secondary" disabled>Unavailable for Rent</button>  <!-- Display a disabled button if the book is rented or sold -->
+}
+@if (Model.Status == "Rented")
+{
+    <form method="post" asp-action="Return" asp-route-id="@Model.Id">
+        <button type="submit" class="btn btn-warning">Return Book</button>
+    </form>
+}
+
 
 <a href="@Url.Action("Index", "Book")" class="btn btn-secondary">Back to List</a>

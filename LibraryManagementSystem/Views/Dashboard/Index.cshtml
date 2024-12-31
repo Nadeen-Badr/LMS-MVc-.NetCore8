@@ -1,0 +1,142 @@
+<@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@* Include Bootstrap CSS *@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+@* Include Chart.js *@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container mt-4">
+    <h2 class="text-center">Library Management Dashboard</h2>
+
+    <div class="row">
+        <!-- Status Chart -->
+        <div class="col-md-6">
+            <h3>Status Data</h3>
+            <canvas id="statusChart"></canvas>
+        </div>
+
+        <!-- Revenue Chart -->
+        <div class="col-md-6">
+            <h3>Revenue Data</h3>
+            <canvas id="revenueChart"></canvas>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Status Table (Optional) -->
+        <div class="col-md-6">
+            <h3>Status Data Table </h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var status in (List<StatusGroup>)ViewData["StatusData"])
+                    {
+                        <tr>
+                            <td>@status.Status</td>
+                            <td>@status.Count</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Revenue Table (Optional) -->
+        <div class="col-md-6">
+            <h3>Revenue Data Table </h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var revenue in (List<RevenueGroup>)ViewData["RevenueData"])
+                    {
+                        <tr>
+                            <td>@revenue.Status</td>
+                            <td>@revenue.Revenue</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@* Chart.js Script to draw the charts *@
+<script>
+    $(document).ready(function () {
+        // Data for Status Chart
+        var statusData = @Html.Raw(Json.Serialize(ViewData["StatusData"]));
+        var statusLabels = statusData.map(function (item) { return item.Status; });
+        var statusCounts = statusData.map(function (item) { return item.Count; });
+
+        // Status Chart
+        var ctxStatus = document.getElementById('statusChart').getContext('2d');
+        var statusChart = new Chart(ctxStatus, {
+            type: 'bar',  // Bar chart for Status
+            data: {
+                labels: statusLabels,
+                datasets: [{
+                    label: 'Book Statuses',
+                    data: statusCounts,
+                    backgroundColor: '#007bff',
+                    borderColor: '#0056b3',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Data for Revenue Chart
+        var revenueData = @Html.Raw(Json.Serialize(ViewData["RevenueData"]));
+        var revenueLabels = revenueData.map(function (item) { return item.Status; });
+        var revenueValues = revenueData.map(function (item) { return item.Revenue; });
+
+        // Revenue Chart
+        var ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+        var revenueChart = new Chart(ctxRevenue, {
+            type: 'line',  // Line chart for Revenue
+            data: {
+                labels: revenueLabels,
+                datasets: [{
+                    label: 'Revenue',
+                    data: revenueValues,
+                    borderColor: '#28a745',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>

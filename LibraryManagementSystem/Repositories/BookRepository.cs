@@ -89,5 +89,28 @@ public async Task UpdateBookAsync(Book book)
  
     return await query.ToListAsync();
 }
+public async Task<List<StatusGroup>> GetBooksGroupedByStatusAsync()
+    {
+        return await _context.Books
+            .GroupBy(b => b.Status)
+            .Select(g => new StatusGroup { Status = g.Key, Count = g.Count() })
+            .ToListAsync();
+    }
 
+    // Async method to get the revenue from rented and sold books
+    public async Task<List<RevenueGroup>> GetRevenueByStatusAsync()
+    {
+        return await _context.Books
+            .Where(b => b.Status == "Rented" || b.Status == "Sold")
+            .GroupBy(b => b.Status)
+            .Select(g => new RevenueGroup
+            {
+                Status = g.Key,
+                Revenue = g.Sum(b => b.Status == "Rented" ? (b.RentPrice ?? 0) * (b.RentalDuration ?? 0) : (b.SellPrice ?? 0))
+
+            })
+            .ToListAsync();
+    }
 }
+
+

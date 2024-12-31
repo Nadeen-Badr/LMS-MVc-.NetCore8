@@ -13,4 +13,7 @@ public interface IBookRepository
      Task<Book> GetBookByIdAsyncAsNOTRacking(int id);
      Task<IEnumerable<Book>> GetBooksBySearchAsync(string? searchQuery);
      Task<IEnumerable<Book>> GetFilteredBooksAsync(int? categoryId, string status);
+     Task<List<StatusGroup>> GetBooksGroupedByStatusAsync();
+     Task<List<RevenueGroup>> GetRevenueByStatusAsync();
+     
 }
