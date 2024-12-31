@@ -1,12 +1,17 @@
-<@{
+@{
     ViewData["Title"] = "Dashboard";
 }
 
-@* Include Bootstrap CSS *@
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+<script>
+    console.log("Status Data: ", @Html.Raw(Json.Serialize(ViewData["StatusData"])));
+    console.log("Revenue Data: ", @Html.Raw(Json.Serialize(ViewData["RevenueData"])));
+</script>
 
-@* Include Chart.js *@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
 
 <div class="container mt-4">
     <h2 class="text-center">Library Management Dashboard</h2>
@@ -15,20 +20,20 @@
         <!-- Status Chart -->
         <div class="col-md-6">
             <h3>Status Data</h3>
-            <canvas id="statusChart"></canvas>
+            <canvas id="statusChart" style="width: 100%; height: 300px;"></canvas>
         </div>
 
         <!-- Revenue Chart -->
         <div class="col-md-6">
             <h3>Revenue Data</h3>
-            <canvas id="revenueChart"></canvas>
+            <canvas id="revenueChart" style="width: 100%; height: 300px;"></canvas>
         </div>
     </div>
 
     <div class="row mt-4">
-        <!-- Status Table (Optional) -->
+        <!-- Status Data Table -->
         <div class="col-md-6">
-            <h3>Status Data Table </h3>
+            <h3>Status Data Table</h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -48,9 +53,9 @@
             </table>
         </div>
 
-        <!-- Revenue Table (Optional) -->
+        <!-- Revenue Data Table -->
         <div class="col-md-6">
-            <h3>Revenue Data Table </h3>
+            <h3>Revenue Data Table</h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -72,71 +77,89 @@
     </div>
 </div>
 
-@* Chart.js Script to draw the charts *@
+<!-- Chart.js Script to draw the charts -->
 <script>
-    $(document).ready(function () {
-        // Data for Status Chart
-        var statusData = @Html.Raw(Json.Serialize(ViewData["StatusData"]));
-        var statusLabels = statusData.map(function (item) { return item.Status; });
-        var statusCounts = statusData.map(function (item) { return item.Count; });
+    window.onload = function() {
+        try {
+            // Status Data
+            var statusData = @Html.Raw(Json.Serialize(ViewData["StatusData"]));
+            var statusLabels = statusData.map(function(item) {
+                return item.status;  // Ensure this matches your model property name
+            });
+            var statusCounts = statusData.map(function(item) {
+                return item.count;  // Ensure this matches your model property name
+            });
 
-        // Status Chart
-        var ctxStatus = document.getElementById('statusChart').getContext('2d');
-        var statusChart = new Chart(ctxStatus, {
-            type: 'bar',  // Bar chart for Status
-            data: {
-                labels: statusLabels,
-                datasets: [{
-                    label: 'Book Statuses',
-                    data: statusCounts,
-                    backgroundColor: '#007bff',
-                    borderColor: '#0056b3',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    },
-                    y: {
-                        beginAtZero: true
+            console.log('Status Labels:', statusLabels);
+            console.log('Status Counts:', statusCounts);
+
+            // Status Chart
+            var ctxStatus = document.getElementById('statusChart').getContext('2d');
+            var statusChart = new Chart(ctxStatus, {
+                type: 'bar',
+                data: {
+                    labels: statusLabels,
+                    datasets: [{
+                        label: 'Book Statuses',
+                        data: statusCounts,
+                        backgroundColor: '#007bff',
+                        borderColor: '#0056b3',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
 
-        // Data for Revenue Chart
-        var revenueData = @Html.Raw(Json.Serialize(ViewData["RevenueData"]));
-        var revenueLabels = revenueData.map(function (item) { return item.Status; });
-        var revenueValues = revenueData.map(function (item) { return item.Revenue; });
+            // Revenue Data
+            var revenueData = @Html.Raw(Json.Serialize(ViewData["RevenueData"]));
+            var revenueLabels = revenueData.map(function(item) {
+                return item.status;  // Ensure this matches your model property name
+            });
+            var revenueValues = revenueData.map(function(item) {
+                return item.revenue;  // Ensure this matches your model property name
+            });
 
-        // Revenue Chart
-        var ctxRevenue = document.getElementById('revenueChart').getContext('2d');
-        var revenueChart = new Chart(ctxRevenue, {
-            type: 'line',  // Line chart for Revenue
-            data: {
-                labels: revenueLabels,
-                datasets: [{
-                    label: 'Revenue',
-                    data: revenueValues,
-                    borderColor: '#28a745',
-                    fill: false,
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    },
-                    y: {
-                        beginAtZero: true
+            console.log('Revenue Labels:', revenueLabels);
+            console.log('Revenue Values:', revenueValues);
+
+            // Revenue Chart
+            var ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+            var revenueChart = new Chart(ctxRevenue, {
+                type: 'line',
+                data: {
+                    labels: revenueLabels,
+                    datasets: [{
+                        label: 'Revenue',
+                        data: revenueValues,
+                        borderColor: '#28a745',
+                        fill: false,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    });
+            });
+        } catch (error) {
+            console.error("Error in rendering chart:", error);
+        }
+    };
 </script>
