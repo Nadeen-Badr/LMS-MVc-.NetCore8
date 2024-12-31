@@ -236,6 +236,10 @@ public async Task<IActionResult> Rent(int id, int rentalDuration)
     book.RentalDuration = rentalDuration;
     book.RentalDate = DateTime.Now;
     book.DueDate = DateTime.Now.AddDays(rentalDuration);
+    var rentalProfit = book.RentPrice * rentalDuration;
+
+    // Update the book's total rental profit
+    book.TotalRentProfit += rentalProfit;
 
     // Save changes to the database
     await _bookRepository.UpdateBookAsync(book);

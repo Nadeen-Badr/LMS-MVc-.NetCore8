@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e+zccvZ3uhbUIK9bbzDKGn2uGvLHB1sReuY513DX3wU=",
+  "Hash": "VD6S/3ssmUgDZVmK0nabVAWeIjK106xLM2FAlpasDwo=",
   "Source": "LibraryManagementSystem",
   "BasePath": "_content/LibraryManagementSystem",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\g.jpg"
+    },
+    {
+      "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\github.png",
+      "SourceId": "LibraryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\",
+      "BasePath": "_content/LibraryManagementSystem",
+      "RelativePath": "images/github.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\github.png"
     },
     {
       "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\ln.jpg",

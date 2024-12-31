@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryManagementSystem.Models
@@ -25,5 +26,8 @@ namespace LibraryManagementSystem.Models
          public int? RentalDuration { get; set; } // Duration in days
     public DateTime? RentalDate { get; set; } // Date when the book was rented
     public DateTime? DueDate { get; set; } // Due date for return
+
+     [DefaultValue(0)]
+     public decimal? TotalRentProfit { get; set; } 
     }
 }

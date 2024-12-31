@@ -47,7 +47,9 @@ public async Task<IEnumerable<Book>> GetBooksBySearchAsync(string? searchQuery)
    }
 
 public async Task AddBookAsync(Book book)
+
 {
+     book.TotalRentProfit ??= 0m;
     await _context.Books.AddAsync(book);
     await _context.SaveChangesAsync();
 }
@@ -106,7 +108,9 @@ public async Task<List<StatusGroup>> GetBooksGroupedByStatusAsync()
             .Select(g => new RevenueGroup
             {
                 Status = g.Key,
-                Revenue = g.Sum(b => b.Status == "Rented" ? (b.RentPrice ?? 0) * (b.RentalDuration ?? 0) : (b.SellPrice ?? 0))
+                Revenue = g.Key == "Rented"
+                ? g.Sum(b => b.TotalRentProfit ?? 0) // Sum up TotalRentProfit for Rented
+                : g.Sum(b => b.SellPrice ?? 0) 
 
             })
             .ToListAsync();

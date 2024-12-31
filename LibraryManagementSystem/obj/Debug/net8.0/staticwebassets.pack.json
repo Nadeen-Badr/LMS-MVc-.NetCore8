@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\g.jpg"
     },
     {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\github.png",
+      "PackagePath": "staticwebassets\\images\\github.png"
+    },
+    {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\ln.jpg",
       "PackagePath": "staticwebassets\\images\\ln.jpg"
     },
