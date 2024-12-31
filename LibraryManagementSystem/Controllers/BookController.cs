@@ -17,14 +17,22 @@ public class BookController : Controller
     }
 
     // GET: Book
-public async Task<IActionResult> Index()
+public async Task<IActionResult> Index(string? searchQuery)
 {
-    // Include the Category when fetching the books
-    var books = await _bookRepository.GetAllBooksAsync();
+    IEnumerable<Book> books;
+    var categories = await _categoryRepository.GetAllCategoriesAsync();
+    
+    // Pass categories directly to the view using ViewData
+    ViewData["Categories"] = categories;
 
-    if (books == null || !books.Any())
+    if (!string.IsNullOrEmpty(searchQuery))
     {
-        return NotFound(); // Handle case when no books are found
+        books = await _bookRepository.GetBooksBySearchAsync(searchQuery);
+        ViewData["CurrentSearch"] = searchQuery; // To retain the search term in the input field
+    }
+    else
+    {
+        books = await _bookRepository.GetAllBooksAsync();
     }
 
     return View(books);

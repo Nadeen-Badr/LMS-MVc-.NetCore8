@@ -11,4 +11,6 @@ public interface IBookRepository
     Task DeleteBookAsync(int id);
     Task<bool> BookExists(int id);
      Task<Book> GetBookByIdAsyncAsNOTRacking(int id);
+     Task<IEnumerable<Book>> GetBooksBySearchAsync(string? searchQuery);
+     Task<IEnumerable<Book>> GetFilteredBooksAsync(int? categoryId, string status);
 }

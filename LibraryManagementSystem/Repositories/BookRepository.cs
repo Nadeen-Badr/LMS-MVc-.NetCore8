@@ -20,6 +20,18 @@ public class BookRepository : IBookRepository
                          .Include(b => b.Category)
                          .ToListAsync();
 }
+public async Task<IEnumerable<Book>> GetBooksBySearchAsync(string? searchQuery)
+{
+    // Eager load the Category with the Books
+    var query = _context.Books.Include(b => b.Category).AsQueryable();
+
+    if (!string.IsNullOrEmpty(searchQuery))
+    {
+        query = query.Where(b => b.Title.Contains(searchQuery)); // Search by Title
+    }
+
+    return await query.ToListAsync();
+}
 
    public async Task<Book> GetBookByIdAsync(int id)
 {
@@ -60,4 +72,22 @@ public async Task UpdateBookAsync(Book book)
             await _context.SaveChangesAsync();
         }
     }
+    public async Task<IEnumerable<Book>> GetFilteredBooksAsync(int? categoryId, string status)
+{
+    var query = _context.Books.Include(b => b.Category).AsQueryable();
+
+    if (categoryId.HasValue)
+    {
+        query = query.Where(b => b.CategoryId == categoryId.Value);
+    }
+
+    if (!string.IsNullOrEmpty(status))
+    {
+        query = query.Where(b => b.Status == status);
+    }
+
+ 
+    return await query.ToListAsync();
+}
+
 }

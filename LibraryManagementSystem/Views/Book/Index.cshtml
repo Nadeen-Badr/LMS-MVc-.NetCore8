@@ -1,5 +1,100 @@
-@model IEnumerable<LibraryManagementSystem.Models.Book>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script>
+    $(document).ready(function () {
+        // Listen for changes in the status filter
+        $('#status').on('change', function () {
+            filterBooks();
+        });
+
+        function filterBooks() {
+            // Get the selected status value
+            var selectedStatus = $('#status').val();
+
+            // Log the selected status to console for debugging
+            console.log('Selected Status: ' + selectedStatus);
+
+            // Loop through each book and check if it matches the selected status
+            $('.book').each(function () {
+                var bookStatus = $(this).data('status');
+
+                // Log the book status to check the value
+                console.log('Book Status: ' + bookStatus);
+
+                // Show or hide the row based on the selected status
+                if (selectedStatus === "" || selectedStatus === bookStatus) {
+                    $(this).show();  // Show the row
+                } else {
+                    $(this).hide();  // Hide the row
+                }
+            });
+        }
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // Listen for changes in the category filter
+        $('#CategoryId').on('change', function () {
+            filterBooksByCategory();
+        });
+
+        function filterBooksByCategory() {
+            // Get the selected category ID value
+            var selectedCategoryId = $('#CategoryId').val();
+
+            // Log the selected category ID to console for debugging
+            console.log('Selected Category ID: ' + selectedCategoryId);
+
+            // Loop through each book and check if it matches the selected category ID
+            $('.book').each(function () {
+                var bookCategoryId = $(this).data('category-id');
+
+                // Log the book category ID to check the value
+                console.log('Book Category ID: ' + bookCategoryId);
+
+                // Show or hide the row based on the selected category ID
+                if (selectedCategoryId === "" || selectedCategoryId == bookCategoryId) {
+                    $(this).show();  // Show the row if category ID matches or no category selected
+                } else {
+                    $(this).hide();  // Hide the row if it doesn't match
+                }
+            });
+        }
+    });
+</script>
+
+
+
+@model IEnumerable<LibraryManagementSystem.Models.Book>
+<form method="get" asp-action="Index">
+    <div class="form-group">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Search by book name..." value="@ViewData["CurrentSearch"]" />
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary ms-2">Clear</a>
+    </div>
+</form>
+<div class="form-group">
+    <label for="CategoryId">Category</label>
+    <select class="form-control" id="CategoryId" name="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
+        {
+            <option value="@category.Id">@category.Name</option>
+        }
+    </select>
+</div>
+
+
+<!-- Status Filter -->
+<div class="form-group">
+    <label for="status">Status</label>
+    <select class="form-control" id="status" name="status">
+        <option value="">All Status</option>
+        <option value="Available">Available</option>
+        <option value="Rented">Rented</option>
+        <option value="Sold">Sold</option>
+    </select>
+</div>
 <h2>Books</h2>
 
 <table class="table">
@@ -12,14 +107,13 @@
             <th>Status</th> 
             <th>Image</th>
             <th>Published Year</th>
-            <th>Copies Available</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var book in Model)
         {
-            <tr>
+            <tr class="book" data-status="@book.Status" data-category-id="@book.Category.Id">
                 <td>@book.Title</td>
                 <td>@book.Author</td>
                 <td>@book.ISBN</td>
@@ -32,7 +126,6 @@
                     }
                 </td>
                 <td>@book.PublishedYear</td>
-             
                 <td>
                     <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info">Details</a>|
                     <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a> |
@@ -42,5 +135,6 @@
         }
     </tbody>
 </table>
+
 
 <a href="@Url.Action("Create", "Book")">Create New Book</a>

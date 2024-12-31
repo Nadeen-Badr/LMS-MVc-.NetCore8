@@ -24,16 +24,17 @@
     </div>
 
     <!-- Dropdown for Category -->
-    <div class="form-group">
-        <label for="CategoryId">Category</label>
-        <select class="form-control" id="CategoryId" name="CategoryId">
-            <option value="">Select a Category</option>
-            @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
-            {
-                <option value="@category.Id">@category.Name</option>
-            }
-        </select>
-    </div>
+  <div class="form-group">
+    <label for="CategoryId">Category</label>
+    <select class="form-control" id="CategoryId" name="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
+        {
+            <option value="@category.Id">@category.Name</option>
+        }
+    </select>
+</div>
+
     <div class="form-group">
     <label for="Status">Status</label>
     <select class="form-control" id="Status" name="Status">

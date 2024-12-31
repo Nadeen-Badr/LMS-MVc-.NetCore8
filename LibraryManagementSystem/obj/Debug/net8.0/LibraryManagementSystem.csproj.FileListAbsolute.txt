@@ -166,3 +166,4 @@ D:\.NetProjects\LibraryManagementSystem\bin\Debug\net8.0\runtimes\browser\lib\ne
 D:\.NetProjects\LibraryManagementSystem\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\.NetProjects\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.csproj.AssemblyReference.cache
 D:\.NetProjects\LibraryManagementSystem\obj\Debug\net8.0\LibraryM.4D120AE7.Up2Date
+D:\.NetProjects\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.sourcelink.json
