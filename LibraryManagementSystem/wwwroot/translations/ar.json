@@ -42,6 +42,8 @@
     "StatusDataTable": "جدول بيانات الحالة",
     "RevenueDataTable": "جدول بيانات الإيرادات",
     "Count": "العدد",
-    "Revenue": "الإيرادات"
+    "Revenue": "الإيرادات",
+    "Sell": "بيع",
+    "Cancel":"الغاء"
   }
   

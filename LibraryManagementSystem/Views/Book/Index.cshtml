@@ -63,8 +63,7 @@
     });
 </script>
 
-<button onclick="changeLanxD('en')">English</button>
-<button onclick="changeLanxD('ar')">Arabic</button>
+
 
 
 
@@ -73,8 +72,8 @@
 <form method="get" asp-action="Index">
     <div class="form-group">
         <input type="text" name="searchQuery" class="form-control" placeholder="Search by book name..." value="@ViewData["CurrentSearch"]" />
-        <button type="submit" class="btn btn-primary mt-2">Search</button>
-        <a href="@Url.Action("Index")" class="btn btn-secondary ms-2">Clear</a>
+        <button type="submit" class="btn btn-primary mt-2"  id="Search">Search</button>
+        <a href="@Url.Action("Index")"id="Clear" class="btn btn-secondary ms-2">Clear</a>
     </div>
 </form>
 <div class="form-group">
@@ -103,16 +102,14 @@
 
 <table class="table">
     <thead>
-        <tr>
-            <th>@Localizer["Title"]</th>
-            <th>Author</th>
-            <th>ISBN</th>
-            <th>Category</th>
-            <th>Status</th> 
-            <th>Image</th>
-            <th>Published Year</th>
-            <th>Actions</th>
-        </tr>
+             <th id="Title">Title</th>
+            <th id="Author">Author</th>
+            <th id="ISBN">ISBN</th>
+            <th id="Category">Category</th>
+            <th id="Status">Status</th> 
+            <th id="Image">Image</th>
+            <th id="PublishedYear">Published Year</th>
+            <th id="Actions">Actions</th>
     </thead>
     <tbody>
         @foreach (var book in Model)
@@ -131,7 +128,7 @@
                 </td>
                 <td>@book.PublishedYear</td>
                 <td>
-                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info">Details</a>|
+                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info" >Details</a>|
                     <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a> |
                     <a href="@Url.Action("Delete", "Book", new { id = book.Id })" class="btn btn-danger">Delete</a>
                 </td>

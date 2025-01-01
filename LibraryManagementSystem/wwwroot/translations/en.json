@@ -6,6 +6,8 @@
     "Dashboard": "Dashboard",
     "Search": "Search",
     "Clear": "Clear",
+    "S": "Status",
+    "B": "Books",
     "Category": "Category",
     "SelectCategory": "Select Category",
     "AllStatus": "All Status",
@@ -13,6 +15,7 @@
     "Author": "Author",
     "ISBN": "ISBN",
     "Image": "Image",
+    "Sell":"Sell",
     "PublishedYear": "Published Year",
     "Actions": "Actions",
     "Details": "Details",
@@ -40,6 +43,7 @@
     "StatusDataTable": "Status Data Table",
     "RevenueDataTable": "Revenue Data Table",
     "Count": "Count",
-    "Revenue": "Revenue"
+    "Revenue": "Revenue",
+    "Cancel":"Cancel"
   }
   

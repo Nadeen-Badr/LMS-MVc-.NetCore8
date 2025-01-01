@@ -6,6 +6,6 @@
 
 <form asp-action="Delete" method="post">
     <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-danger">Delete</button>
-    <a href="@Url.Action("Index", "Book")" class="btn btn-secondary">Cancel</a>
+    <button type="submit" id="Delete" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "Book")"  id="Cancel"class="btn btn-secondary">Cancel</a>
 </form>
