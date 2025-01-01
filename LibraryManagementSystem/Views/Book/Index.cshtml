@@ -1,3 +1,8 @@
+@model IEnumerable<Book>
+@{
+    int currentPage = ViewData["CurrentPage"] != null ? (int)ViewData["CurrentPage"] : 1;
+    int totalPages = ViewData["TotalPages"] != null ? (int)ViewData["TotalPages"] : 1;
+}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -123,7 +128,30 @@ table tbody tr:hover {
 h3 {
   color: darkgoldenrod; /* Dark gold text for table titles */
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 15px;}
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: darkgoldenrod;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background-color: goldenrod;
+    color: black;
+}
+
+.pagination a:hover {
+    background-color: lightgoldenrodyellow;
+}
+
    
     </style>
 </head>
@@ -131,36 +159,45 @@ h3 {
 
 
 <div class="content">
-@model IEnumerable<LibraryManagementSystem.Models.Book>
+@* @model IEnumerable<LibraryManagementSystem.Models.Book> *@
 <form method="get" asp-action="Index">
     <div class="form-group">
         <input type="text" name="searchQuery" class="form-control" placeholder="Search by book name..." value="@ViewData["CurrentSearch"]" />
-        <button type="submit" class="btn btn-primary mt-2"  id="Search">Search</button>
-        <a href="@Url.Action("Index")"id="Clear" class="btn btn-secondary ms-2">Clear</a>
+     <div class="d-flex">
+    <button type="submit" class="btn btn-primary mt-2 flex-fill" id="Search" style="width: 48%;">Search</button>
+    <a href="@Url.Action("Index")" id="Clear" class="btn btn-secondary mt-2 ms-2 flex-fill" style="width: 48%;">Clear</a>
+</div>
+
+
     </div>
 </form>
-<div class="form-group">
-    <label for="CategoryId">Category</label>
-    <select class="form-control" id="CategoryId" name="CategoryId">
-        <option value="">Select a Category</option>
-        @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
-        {
-            <option value="@category.Id">@category.Name</option>
-        }
-    </select>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="CategoryId">Category</label>
+            <select class="form-control" id="CategoryId" name="CategoryId">
+                <option value="">Select a Category</option>
+                @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" id="status" name="status">
+                <option value="">All Status</option>
+                <option value="Available">Available</option>
+                <option value="Rented">Rented</option>
+                <option value="Sold">Sold</option>
+            </select>
+        </div>
+    </div>
 </div>
 
-
-<!-- Status Filter -->
-<div class="form-group">
-    <label for="status">Status</label>
-    <select class="form-control" id="status" name="status">
-        <option value="">All Status</option>
-        <option value="Available">Available</option>
-        <option value="Rented">Rented</option>
-        <option value="Sold">Sold</option>
-    </select>
-</div>
 <h2 id="B">Books</h2>
 
 <table class="table">
@@ -199,7 +236,29 @@ h3 {
         }
     </tbody>
 </table>
+<!-- Pagination controls -->
+<div class="pagination">
+    @if (currentPage > 1)
+    {
+        <a href="@Url.Action("Index", new { page = currentPage - 1, searchQuery = ViewData["CurrentSearch"] })">Previous</a>
+    }
 
+    @for (int i = 1; i <= totalPages; i++)
+    {
+        <a href="@Url.Action("Index", new { page = i, searchQuery = ViewData["CurrentSearch"] })" class="@(i == currentPage ? "active" : "")">@i</a>
+    }
 
-<a href="@Url.Action("Create", "Book")">Create New Book</a>
+    @if (currentPage < totalPages)
+    {
+        <a href="@Url.Action("Index", new { page = currentPage + 1, searchQuery = ViewData["CurrentSearch"] })">Next</a>
+    }
+</div>
+
+<a href="@Url.Action("Create", "Book")" 
+   style="color: darkgoldenrod; text-decoration: none; font-size: 1.2rem; padding: 5px 10px; border: 1px solid darkgoldenrod; border-radius: 5px; transition: background-color 0.3s ease;" 
+   onmouseover="this.style.backgroundColor='darkgoldenrod'; this.style.color='black';" 
+   onmouseout="this.style.backgroundColor='transparent'; this.style.color='darkgoldenrod';">
+    Create New Book
+</a>
+
 </div>

@@ -53,6 +53,17 @@ public async Task AddBookAsync(Book book)
     await _context.Books.AddAsync(book);
     await _context.SaveChangesAsync();
 }
+public async Task<IEnumerable<Book>> GetPagedBooksAsync(int page, int pageSize)
+{
+    return await _context.Books
+        .Skip((page - 1) * pageSize) // Skip books from previous pages
+        .Take(pageSize)             // Take books for the current page
+        .ToListAsync();
+}
+public async Task<int> GetAllBooksCountAsync()
+{
+    return await _context.Books.CountAsync();
+}
 
 public async Task UpdateBookAsync(Book book)
 {

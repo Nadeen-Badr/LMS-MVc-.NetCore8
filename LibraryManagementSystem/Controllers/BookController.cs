@@ -8,6 +8,7 @@ public class BookController : Controller
 {
     private readonly IBookRepository _bookRepository;
     private readonly ICategoryRepository _categoryRepository;
+     private const int PageSize = 7; 
 
 
    public BookController(IBookRepository bookRepository, ICategoryRepository categoryRepository)
@@ -17,8 +18,9 @@ public class BookController : Controller
     }
 
     // GET: Book
-public async Task<IActionResult> Index(string? searchQuery)
+public async Task<IActionResult> Index(string? searchQuery, int page = 1)
 {
+    const int PageSize = 6; // Number of books to show per page
     IEnumerable<Book> books;
     var categories = await _categoryRepository.GetAllCategoriesAsync();
     
@@ -27,16 +29,24 @@ public async Task<IActionResult> Index(string? searchQuery)
 
     if (!string.IsNullOrEmpty(searchQuery))
     {
+        // Fetch books based on search query
         books = await _bookRepository.GetBooksBySearchAsync(searchQuery);
         ViewData["CurrentSearch"] = searchQuery; // To retain the search term in the input field
     }
     else
     {
-        books = await _bookRepository.GetAllBooksAsync();
+        // Fetch all books with pagination
+        var totalBooks = await _bookRepository.GetAllBooksCountAsync(); // Assuming you have a method to get the total count
+        var totalPages = (int)Math.Ceiling(totalBooks / (double)PageSize); // Calculate total pages
+
+        books = await _bookRepository.GetPagedBooksAsync(page, PageSize); // Fetch paged books
+        ViewData["CurrentPage"] = page;
+        ViewData["TotalPages"] = totalPages;
     }
 
     return View(books);
 }
+
 
 
 
