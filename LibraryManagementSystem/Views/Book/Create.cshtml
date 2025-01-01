@@ -60,7 +60,7 @@
     <!-- Dropdown for Category -->
   <div class="form-group">
     <label for="CategoryId">Category</label>
-    <select class="form-control" id="CategoryId" name="CategoryId">
+    <select class="form-control" id="CategoryId" name="CategoryId" required>
         <option value="">Select a Category</option>
         @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
         {

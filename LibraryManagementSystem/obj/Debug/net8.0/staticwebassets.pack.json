@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\4ee45ae1482c3f3fdec79044f1109a2e.jpg",
+      "PackagePath": "staticwebassets\\images\\4ee45ae1482c3f3fdec79044f1109a2e.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\57a427e90cb62c4d792934be445287cd.jpg",
+      "PackagePath": "staticwebassets\\images\\57a427e90cb62c4d792934be445287cd.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\6ac4d1411c3b4c7fda77240f12affa42.jpg",
+      "PackagePath": "staticwebassets\\images\\6ac4d1411c3b4c7fda77240f12affa42.jpg"
+    },
+    {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\Dashboard.jpg",
       "PackagePath": "staticwebassets\\images\\Dashboard.jpg"
     },
@@ -21,12 +33,28 @@
       "PackagePath": "staticwebassets\\images\\Delete.jpg"
     },
     {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\bd5fb566c8dbe0c3d1d51fd9fb9e8842.jpg",
+      "PackagePath": "staticwebassets\\images\\bd5fb566c8dbe0c3d1d51fd9fb9e8842.jpg"
+    },
+    {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\create.jpg",
       "PackagePath": "staticwebassets\\images\\create.jpg"
     },
     {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\d2dde7970747213d64b8fc70548473fc.jpg",
+      "PackagePath": "staticwebassets\\images\\d2dde7970747213d64b8fc70548473fc.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\d488872bac61142f78b0ade605d1df80.jpg",
+      "PackagePath": "staticwebassets\\images\\d488872bac61142f78b0ade605d1df80.jpg"
+    },
+    {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\details.jpg",
       "PackagePath": "staticwebassets\\images\\details.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\e72b2cafbe89dc5a2c9c9da2cf41b6f3.jpg",
+      "PackagePath": "staticwebassets\\images\\e72b2cafbe89dc5a2c9c9da2cf41b6f3.jpg"
     },
     {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\edit.jpg",

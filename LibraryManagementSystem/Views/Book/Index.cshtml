@@ -164,8 +164,13 @@ h3 {
     <div class="form-group">
         <input type="text" name="searchQuery" class="form-control" placeholder="Search by book name..." value="@ViewData["CurrentSearch"]" />
      <div class="d-flex">
-    <button type="submit" class="btn btn-primary mt-2 flex-fill" id="Search" style="width: 48%;">Search</button>
-    <a href="@Url.Action("Index")" id="Clear" class="btn btn-secondary mt-2 ms-2 flex-fill" style="width: 48%;">Clear</a>
+    <button type="submit" class="btn btn-primary mt-2 flex-fill" id="Search" style="width: 48%;">Search <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg></button>
+    <a href="@Url.Action("Index")" id="Clear" class="btn btn-secondary mt-2 ms-2 flex-fill" style="width: 48%;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+  <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+</svg> Clear</a>
 </div>
 
 
@@ -174,7 +179,10 @@ h3 {
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="CategoryId">Category</label>
+            <label for="CategoryId">Category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-dash" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M5.5 6.5A.5.5 0 0 1 6 6h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5"/>
+  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+</svg></label>
             <select class="form-control" id="CategoryId" name="CategoryId">
                 <option value="">Select a Category</option>
                 @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
@@ -187,7 +195,10 @@ h3 {
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="status">Status</label>
+            <label for="status">Status <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
+  <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+</svg></label>
             <select class="form-control" id="status" name="status">
                 <option value="">All Status</option>
                 <option value="Available">Available</option>
@@ -198,49 +209,63 @@ h3 {
     </div>
 </div>
 
-<h2 id="B">Books</h2>
+<h2 id="B" style="text-align: center; color: darkgoldenrod;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-medical" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v.634l.549-.317a.5.5 0 1 1 .5.866L9 6l.549.317a.5.5 0 1 1-.5.866L8.5 6.866V7.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L7 6l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V4.5A.5.5 0 0 1 8 4M5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+</svg> Books</h2>
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 100%; background-color: rgba(0, 0, 0, 0.5);">
+                <!-- Book Image -->
+                <img src="@book.ImagePath" class="card-img-top" alt="Book Image" style="height: 150px; object-fit: cover;">
 
-<table class="table">
-    <thead>
-             <th >Title</th>
-            <th >Author</th>
-            <th >ISBN</th>
-            <th>Category</th>
-            <th >Status</th> 
-            <th >Image</th>
-            <th>Published Year</th>
-            <th >Actions</th>
-    </thead>
-    <tbody>
-        @foreach (var book in Model)
-        {
-            <tr class="book" data-status="@book.Status" data-category-id="@book.Category.Id">
-                <td>@book.Title</td>
-                <td>@book.Author</td>
-                <td>@book.ISBN</td>
-                <td>@book.Category.Name</td>
-                <td>@book.Status</td> 
-                <td>
-                    @if (!string.IsNullOrEmpty(book.ImagePath))
-                    {
-                        <img src="@book.ImagePath" alt="Book Image" width="100" />
-                    }
-                </td>
-                <td>@book.PublishedYear</td>
-                <td>
-                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info" >Details</a>|
-                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a> |
-                    <a href="@Url.Action("Delete", "Book", new { id = book.Id })" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                <div class="card-body" style="color: white; padding: 10px;">
+                    <!-- Title -->
+                    <h5 class="card-title" style="color: darkgoldenrod; font-size: 1.1rem;">@book.Title</h5>
+
+                    <!-- Author -->
+                    <p class="card-text" style="font-size: 0.9rem;"><strong>Author:</strong> @book.Author</p>
+
+                    <!-- Category -->
+                    <p class="card-text" style="font-size: 0.9rem;"><strong>Category:</strong> @book.Category.Name</p>
+
+                    <!-- Status -->
+                    <p class="card-text" style="font-size: 0.9rem;"><strong>Status:</strong> @book.Status</p>
+
+                    <!-- Published Year -->
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="card-footer text-center" style="background-color: rgba(0, 0, 0, 0.7);">
+                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info" style="margin: 5px;">Details <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+  <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2z"/>
+  <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5z"/>
+</svg></a>
+                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary" style="margin: 5px;">Edit <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg></a>
+                    <a href="@Url.Action("Delete", "Book", new { id = book.Id })" class="btn btn-danger" style="margin: 5px;">Delete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
 <!-- Pagination controls -->
 <div class="pagination">
     @if (currentPage > 1)
     {
-        <a href="@Url.Action("Index", new { page = currentPage - 1, searchQuery = ViewData["CurrentSearch"] })">Previous</a>
+        <a href="@Url.Action("Index", new { page = currentPage - 1, searchQuery = ViewData["CurrentSearch"] })"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg> Previous</a>
     }
 
     @for (int i = 1; i <= totalPages; i++)
@@ -250,7 +275,9 @@ h3 {
 
     @if (currentPage < totalPages)
     {
-        <a href="@Url.Action("Index", new { page = currentPage + 1, searchQuery = ViewData["CurrentSearch"] })">Next</a>
+        <a href="@Url.Action("Index", new { page = currentPage + 1, searchQuery = ViewData["CurrentSearch"] })">Next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+</svg></a>
     }
 </div>
 
@@ -258,7 +285,9 @@ h3 {
    style="color: darkgoldenrod; text-decoration: none; font-size: 1.2rem; padding: 5px 10px; border: 1px solid darkgoldenrod; border-radius: 5px; transition: background-color 0.3s ease;" 
    onmouseover="this.style.backgroundColor='darkgoldenrod'; this.style.color='black';" 
    onmouseout="this.style.backgroundColor='transparent'; this.style.color='darkgoldenrod';">
-    Create New Book
+    Create New Book <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+</svg>
 </a>
 
 </div>
