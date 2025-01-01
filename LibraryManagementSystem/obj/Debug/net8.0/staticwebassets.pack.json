@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\js\\translation.js",
+      "PackagePath": "staticwebassets\\js\\translation.js"
+    },
+    {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
@@ -259,6 +263,14 @@
     {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\translations\\ar.json",
+      "PackagePath": "staticwebassets\\translations\\ar.json"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\translations\\en.json",
+      "PackagePath": "staticwebassets\\translations\\en.json"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LibraryManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",

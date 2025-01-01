@@ -63,6 +63,10 @@
     });
 </script>
 
+<button onclick="changeLanxD('en')">English</button>
+<button onclick="changeLanxD('ar')">Arabic</button>
+
+
 
 
 @model IEnumerable<LibraryManagementSystem.Models.Book>
@@ -95,12 +99,12 @@
         <option value="Sold">Sold</option>
     </select>
 </div>
-<h2>Books</h2>
+<h2 id="B">Books</h2>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Title</th>
+            <th>@Localizer["Title"]</th>
             <th>Author</th>
             <th>ISBN</th>
             <th>Category</th>

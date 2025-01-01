@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿ <script src="/js/translation.js"></script>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LibraryManagementSystem</a>
+                <a class="navbar-brand" asp-area="" id="LibraryManagementSystem"  asp-controller="Home" asp-action="Index">LibraryManagementSystem</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,14 +23,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        
                          <li class="nav-item">
-                             <a class="nav-link" asp-controller="Book" asp-action="Index">Books</a>
+                             <a class="nav-link"id="Books" asp-controller="Book" asp-action="Index">Books</a>
                          </li>
                          <li class="nav-item">
-                             <a class="nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                             <a class="nav-link" id="Dashboard" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                         </li>
+                          <li class="nav-item">
+                 
                          </li>
                     </ul>
                 </div>
@@ -38,6 +40,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+         
             @RenderBody()
         </main>
     </div>
@@ -53,3 +56,13 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<script>
+    function changeLanguage(lang) {
+        window.location.href = '/Language/ChangeLanguage?lang=' + lang;
+    }
+
+    $(document).ready(function() {
+        var currentLang = '@CultureInfo.CurrentCulture.Name';
+        $('#languageSelector').val(currentLang);  // Set the default language in the dropdown
+    });
+</script>

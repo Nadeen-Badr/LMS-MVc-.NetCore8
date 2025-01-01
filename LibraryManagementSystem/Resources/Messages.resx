@@ -1,0 +1,131 @@
+<root>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome to the Library Dashboard</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+   <data name="Library Management System" xml:space="preserve">
+    <value>Library Management System</value>
+  </data>
+   <data name="Books" xml:space="preserve">
+    <value>Books</value>
+  </data>
+   <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+   <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+    <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+    <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+    <data name="Select Category" xml:space="preserve">
+    <value>Select Category</value>
+  </data>
+    <data name="All Status" xml:space="preserve">
+    <value>All Status</value>
+  </data>
+   <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="ISBN" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Published Year" xml:space="preserve">
+    <value>Published Year</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data> 
+  <data name="Sold" xml:space="preserve">
+    <value>Sold</value>
+  </data>  
+  <data name="Rented" xml:space="preserve">
+    <value>Rented</value>
+  </data> 
+  <data name="Available" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="Create New Book" xml:space="preserve">
+    <value>Create New Book</value>
+  </data>  
+  <data name="Back To List" xml:space="preserve">
+    <value>Back To List</value>
+  </data> 
+  <data name="Rent" xml:space="preserve">
+    <value>Rent</value>
+  </data> 
+  <data name="Unavailable For Rent" xml:space="preserve">
+    <value>Unavailable For Rent</value>
+  </data> 
+  <data name="Return Book" xml:space="preserve">
+    <value>Return Book</value>
+  </data> 
+  <data name="Book Details" xml:space="preserve">
+    <value>Book Details</value>
+  </data> 
+  <data name="Rental Duration" xml:space="preserve">
+    <value>Rental Duration</value>
+  </data> 
+  <data name="Rent Price" xml:space="preserve">
+    <value>Rent Price</value>
+  </data> 
+  <data name="Sell Price" xml:space="preserve">
+    <value>Sell Price</value>
+  </data> 
+  <data name="Rental Duration (in days)" xml:space="preserve">
+    <value>Rental Duration (in days)</value>
+  </data> 
+  <data name="Edit Book" xml:space="preserve">
+    <value>Edit Book</value>
+  </data> 
+    <data name="Create Book" xml:space="preserve">
+    <value>Create Book</value>
+  </data> 
+    <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Library Management Dashboard " xml:space="preserve">
+    <value>Library Management Dashboard </value>
+  </data>
+   <data name="Status Data " xml:space="preserve">
+    <value>Status Data</value>
+  </data>
+   <data name="Revenue Data" xml:space="preserve">
+    <value>Revenue Data </value>
+  </data>
+   <data name="Status Data Table " xml:space="preserve">
+    <value>Status Data Table </value>
+  </data>
+   <data name="Revenue Data" xml:space="preserve">
+    <value>Revenue Data Table </value>
+  </data>
+   <data name="Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+    <data name="Revenue" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  
+
+  <!-- Add more keys as needed -->
+</root>

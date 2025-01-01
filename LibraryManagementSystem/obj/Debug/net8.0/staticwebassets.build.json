@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VD6S/3ssmUgDZVmK0nabVAWeIjK106xLM2FAlpasDwo=",
+  "Hash": "70h0TVAPMDeU/c4V3mFF6DfHyMPFCN+nWaP1Xn6yDP8=",
   "Source": "LibraryManagementSystem",
   "BasePath": "_content/LibraryManagementSystem",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\js\\translation.js",
+      "SourceId": "LibraryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\",
+      "BasePath": "_content/LibraryManagementSystem",
+      "RelativePath": "js/translation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\translation.js"
     },
     {
       "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -1269,6 +1288,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\translations\\ar.json",
+      "SourceId": "LibraryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\",
+      "BasePath": "_content/LibraryManagementSystem",
+      "RelativePath": "translations/ar.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\translations\\ar.json"
+    },
+    {
+      "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\translations\\en.json",
+      "SourceId": "LibraryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\",
+      "BasePath": "_content/LibraryManagementSystem",
+      "RelativePath": "translations/en.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\translations\\en.json"
     }
   ]
 }

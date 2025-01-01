@@ -1,0 +1,128 @@
+<root>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>مرحبًا بك في لوحة تحكم المكتبة</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Library Management System" xml:space="preserve">
+    <value>نظام إدارة المكتبة</value>
+  </data>
+  <data name="Books" xml:space="preserve">
+    <value>الكتب</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>لوحة التحكم</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>الفئة</value>
+  </data>
+  <data name="Select Category" xml:space="preserve">
+    <value>اختر الفئة</value>
+  </data>
+  <data name="All Status" xml:space="preserve">
+    <value>جميع الحالات</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>المؤلف</value>
+  </data>
+  <data name="ISBN" xml:space="preserve">
+    <value>رقم الكتاب الدولي</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>الصورة</value>
+  </data>
+  <data name="Published Year" xml:space="preserve">
+    <value>سنة النشر</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Sold" xml:space="preserve">
+    <value>مباع</value>
+  </data>
+  <data name="Rented" xml:space="preserve">
+    <value>مستأجر</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>متاح</value>
+  </data>
+  <data name="Create New Book" xml:space="preserve">
+    <value>إنشاء كتاب جديد</value>
+  </data>
+  <data name="Back Yo List" xml:space="preserve">
+    <value>العودة إلى القائمة</value>
+  </data>
+  <data name="Rent" xml:space="preserve">
+    <value>استئجار</value>
+  </data>
+  <data name="Unavailable For Rent" xml:space="preserve">
+    <value>غير متاح للإيجار</value>
+  </data>
+  <data name="Return Book" xml:space="preserve">
+    <value>إرجاع الكتاب</value>
+  </data>
+  <data name="Book Details" xml:space="preserve">
+    <value>تفاصيل الكتاب</value>
+  </data>
+  <data name="Rental Duration" xml:space="preserve">
+    <value>مدة الإيجار</value>
+  </data>
+  <data name="Rent Price" xml:space="preserve">
+    <value>سعر الإيجار</value>
+  </data>
+  <data name="Sell Price" xml:space="preserve">
+    <value>سعر البيع</value>
+  </data>
+  <data name="Rental Duration (in days)" xml:space="preserve">
+    <value>مدة الإيجار (باليوم)</value>
+  </data>
+  <data name="Edit Book" xml:space="preserve">
+    <value>تعديل الكتاب</value>
+  </data>
+  <data name="Create Book" xml:space="preserve">
+    <value>إنشاء كتاب</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Library Management Dashboard" xml:space="preserve">
+    <value>لوحة تحكم إدارة المكتبة</value>
+  </data>
+  <data name="Status Data" xml:space="preserve">
+    <value>بيانات الحالة</value>
+  </data>
+  <data name="Revenue Data" xml:space="preserve">
+    <value>بيانات الإيرادات</value>
+  </data>
+  <data name="Status Data Table" xml:space="preserve">
+    <value>جدول بيانات الحالة</value>
+  </data>
+  <data name="Revenue Data Table" xml:space="preserve">
+    <value>جدول بيانات الإيرادات</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>العدد</value>
+  </data>
+  <data name="Revenue" xml:space="preserve">
+    <value>الإيرادات</value>
+  </data>
+</root>
