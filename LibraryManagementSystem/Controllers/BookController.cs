@@ -8,7 +8,7 @@ public class BookController : Controller
 {
     private readonly IBookRepository _bookRepository;
     private readonly ICategoryRepository _categoryRepository;
-     private const int PageSize = 7; 
+     private const int PageSize = 6; 
 
 
    public BookController(IBookRepository bookRepository, ICategoryRepository categoryRepository)
@@ -18,34 +18,39 @@ public class BookController : Controller
     }
 
     // GET: Book
-public async Task<IActionResult> Index(string? searchQuery, int page = 1)
+public async Task<IActionResult> Index(int? categoryId, string? searchQuery, string status, int page = 1, int pageSize = 6)
 {
-    const int PageSize = 6; // Number of books to show per page
-    IEnumerable<Book> books;
+    // Retrieve categories for the dropdown
     var categories = await _categoryRepository.GetAllCategoriesAsync();
-    
-    // Pass categories directly to the view using ViewData
     ViewData["Categories"] = categories;
+
+    // Initialize books collection
+    IEnumerable<Book> books;
 
     if (!string.IsNullOrEmpty(searchQuery))
     {
-        // Fetch books based on search query
-        books = await _bookRepository.GetBooksBySearchAsync(searchQuery);
+        // Fetch books based on search query and filters (category and status)
+        books = await _bookRepository.GetBooksBySearchAndFiltersAsync(searchQuery, categoryId, status, page, pageSize);
         ViewData["CurrentSearch"] = searchQuery; // To retain the search term in the input field
     }
     else
     {
-        // Fetch all books with pagination
-        var totalBooks = await _bookRepository.GetAllBooksCountAsync(); // Assuming you have a method to get the total count
-        var totalPages = (int)Math.Ceiling(totalBooks / (double)PageSize); // Calculate total pages
-
-        books = await _bookRepository.GetPagedBooksAsync(page, PageSize); // Fetch paged books
-        ViewData["CurrentPage"] = page;
-        ViewData["TotalPages"] = totalPages;
+        // Get filtered books based on category, status, and pagination
+        books = await _bookRepository.GetFilteredBooksAsync(categoryId, status, page, pageSize);
     }
+
+    // Get total count for pagination
+    var totalBooks = await _bookRepository.GetFilteredBooksCountAsync(categoryId, status);
+
+    // Pass pagination details to the view
+    ViewData["TotalPages"] = (int)Math.Ceiling(totalBooks / (double)pageSize);
+    ViewData["CurrentPage"] = page;
+    ViewData["SelectedCategory"] = categoryId;
+    ViewData["SelectedStatus"] = status;
 
     return View(books);
 }
+
 
 
 

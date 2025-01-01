@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zstFQNzhAN1l9zXbAd+lR+6O8qDC7OewX8yudGNbtl8=",
+  "Hash": "YNWnvbBU9ENyHjlxRhJeDu+WMhKZi0UuToikH+Q1Zsg=",
   "Source": "LibraryManagementSystem",
   "BasePath": "_content/LibraryManagementSystem",
   "Mode": "Default",
@@ -281,6 +281,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\details.jpg"
+    },
+    {
+      "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\download.jpg",
+      "SourceId": "LibraryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\",
+      "BasePath": "_content/LibraryManagementSystem",
+      "RelativePath": "images/download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\download.jpg"
     },
     {
       "Identity": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\e72b2cafbe89dc5a2c9c9da2cf41b6f3.jpg",

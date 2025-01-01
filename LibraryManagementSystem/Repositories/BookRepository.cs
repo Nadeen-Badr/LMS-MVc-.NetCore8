@@ -126,6 +126,70 @@ public async Task<List<StatusGroup>> GetBooksGroupedByStatusAsync()
             })
             .ToListAsync();
     }
+    public async Task<IEnumerable<Book>> GetFilteredBooksAsync(int? categoryId, string status, int page, int pageSize)
+{
+    var query = _context.Books.Include(b => b.Category).AsQueryable();
+
+    if (categoryId.HasValue)
+    {
+        query = query.Where(b => b.CategoryId == categoryId.Value);
+    }
+
+    if (!string.IsNullOrEmpty(status))
+    {
+        query = query.Where(b => b.Status == status);
+    }
+
+    return await query
+        .Skip((page - 1) * pageSize)
+        .Take(pageSize)
+        .ToListAsync();
+}
+
+public async Task<int> GetFilteredBooksCountAsync(int? categoryId, string status)
+{
+    var query = _context.Books.AsQueryable();
+
+    if (categoryId.HasValue)
+    {
+        query = query.Where(b => b.CategoryId == categoryId.Value);
+    }
+
+    if (!string.IsNullOrEmpty(status))
+    {
+        query = query.Where(b => b.Status == status);
+    }
+
+    return await query.CountAsync();
+}
+public async Task<IEnumerable<Book>> GetBooksBySearchAndFiltersAsync(string searchQuery, int? categoryId, string status, int page, int pageSize)
+{
+    var query = _context.Books.Include(b => b.Category).AsQueryable();
+
+    // Apply filters
+    if (categoryId.HasValue)
+    {
+        query = query.Where(b => b.CategoryId == categoryId.Value);
+    }
+
+    if (!string.IsNullOrEmpty(status))
+    {
+        query = query.Where(b => b.Status == status);
+    }
+
+    // Apply search query
+    if (!string.IsNullOrEmpty(searchQuery))
+    {
+        query = query.Where(b => b.Title.Contains(searchQuery) );
+    }
+
+    // Apply pagination
+    query = query.Skip((page - 1) * pageSize).Take(pageSize);
+
+    return await query.ToListAsync();
+}
+
+
 }
 
 

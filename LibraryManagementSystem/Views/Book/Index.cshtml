@@ -176,38 +176,83 @@ h3 {
 
     </div>
 </form>
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label for="CategoryId">Category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-dash" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M5.5 6.5A.5.5 0 0 1 6 6h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5"/>
-  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
-</svg></label>
-            <select class="form-control" id="CategoryId" name="CategoryId">
-                <option value="">Select a Category</option>
-                @foreach (var category in (IEnumerable<LibraryManagementSystem.Models.Category>)ViewData["Categories"])
-                {
-                    <option value="@category.Id">@category.Name</option>
-                }
-            </select>
+<form method="get" asp-action="Index">
+    <div class="row align-items-end">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="CategoryId">Category</label>
+                <select class="form-control" id="CategoryId" name="categoryId">
+                    <option value="">Select a Category</option>
+                    @if (ViewData["Categories"] is IEnumerable<LibraryManagementSystem.Models.Category> categories)
+                    {
+                        foreach (var category in categories)
+                        {
+                            if (ViewData["SelectedCategory"] != null && (int)ViewData["SelectedCategory"] == category.Id)
+                            {
+                                <option value="@category.Id" selected>@category.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        }
+                    }
+                </select>
+            </div>
         </div>
-    </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="">All Status</option>
+                    @if (ViewData["SelectedStatus"] != null)
+                    {
+                        if ((string)ViewData["SelectedStatus"] == "Available")
+                        {
+                            <option value="Available" selected>Available</option>
+                        }
+                        else
+                        {
+                            <option value="Available">Available</option>
+                        }
 
-    <div class="col-md-6">
-        <div class="form-group">
-            <label for="status">Status <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
-  <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
-  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
-</svg></label>
-            <select class="form-control" id="status" name="status">
-                <option value="">All Status</option>
-                <option value="Available">Available</option>
-                <option value="Rented">Rented</option>
-                <option value="Sold">Sold</option>
-            </select>
+                        if ((string)ViewData["SelectedStatus"] == "Rented")
+                        {
+                            <option value="Rented" selected>Rented</option>
+                        }
+                        else
+                        {
+                            <option value="Rented">Rented</option>
+                        }
+
+                        if ((string)ViewData["SelectedStatus"] == "Sold")
+                        {
+                            <option value="Sold" selected>Sold</option>
+                        }
+                        else
+                        {
+                            <option value="Sold">Sold</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="Available">Available</option>
+                        <option value="Rented">Rented</option>
+                        <option value="Sold">Sold</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4 text-end">
+            <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Clear Filters</a>
         </div>
     </div>
-</div>
+</form>
+
+
+
+
 
 <h2 id="B" style="text-align: center; color: darkgoldenrod;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-medical" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v.634l.549-.317a.5.5 0 1 1 .5.866L9 6l.549.317a.5.5 0 1 1-.5.866L8.5 6.866V7.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L7 6l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V4.5A.5.5 0 0 1 8 4M5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
@@ -258,7 +303,22 @@ h3 {
 </div>
 
 
-
+@* <nav aria-label="Page navigation">
+    <ul class="pagination">
+        @for (int i = 1; i <= (int)ViewData["TotalPages"]; i++)
+        {
+            <li class="page-item @(i == (int)ViewData["CurrentPage"] ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { 
+                    categoryId = ViewData["SelectedCategory"], 
+                    status = ViewData["SelectedStatus"], 
+                    page = i 
+                })">
+                    @i
+                </a>
+            </li>
+        }
+    </ul>
+</nav> *@
 <!-- Pagination controls -->
 <div class="pagination">
     @if (currentPage > 1)

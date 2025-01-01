@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\images\\details.jpg"
     },
     {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\download.jpg",
+      "PackagePath": "staticwebassets\\images\\download.jpg"
+    },
+    {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\e72b2cafbe89dc5a2c9c9da2cf41b6f3.jpg",
       "PackagePath": "staticwebassets\\images\\e72b2cafbe89dc5a2c9c9da2cf41b6f3.jpg"
     },

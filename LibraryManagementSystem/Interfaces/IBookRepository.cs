@@ -17,5 +17,8 @@ public interface IBookRepository
      Task<List<RevenueGroup>> GetRevenueByStatusAsync();
      Task<IEnumerable<Book>> GetPagedBooksAsync(int page, int pageSize);
      Task<int> GetAllBooksCountAsync();
+     Task<int> GetFilteredBooksCountAsync(int? categoryId, string status);
+     Task<IEnumerable<Book>> GetFilteredBooksAsync(int? categoryId, string status, int page, int pageSize);
+     Task<IEnumerable<Book>> GetBooksBySearchAndFiltersAsync(string searchQuery, int? categoryId, string status, int page, int pageSize);
      
 }
