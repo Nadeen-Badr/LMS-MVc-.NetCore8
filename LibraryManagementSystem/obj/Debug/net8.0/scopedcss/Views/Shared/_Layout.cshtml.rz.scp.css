@@ -1,48 +1,72 @@
-/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand[b-spbznog2vl] {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
+    /* Navbar styling */
+    .navbar[b-spbznog2vl] {
+      background-color: rgba(0, 0, 0, 0.3) !important; /* Transparent black */
+      color: darkgoldenrod !important;
+      border-bottom: 1px solid darkgoldenrod !important; /* Adds a slight separator line */
+    }
 
-a[b-spbznog2vl] {
-  color: #0077cc;
-}
+    .navbar .navbar-toggler[b-spbznog2vl] {
+      color: darkgoldenrod !important;
+      border-color: darkgoldenrod !important;
+    }
 
-.btn-primary[b-spbznog2vl] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
+    .navbar .nav-link[b-spbznog2vl] {
+      color: darkgoldenrod !important;
+      transition: color 0.3s ease !important; /* Smooth transition for hover effects */
+    }
 
-.nav-pills .nav-link.active[b-spbznog2vl], .nav-pills .show > .nav-link[b-spbznog2vl] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
+    .navbar .nav-link:hover[b-spbznog2vl] {
+      color: goldenrod !important; /* Brighter gold on hover */
+    }
 
-.border-top[b-spbznog2vl] {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom[b-spbznog2vl] {
-  border-bottom: 1px solid #e5e5e5;
-}
+    .navbar .navbar-toggler-icon[b-spbznog2vl] {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='darkgoldenrod' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
 
-.box-shadow[b-spbznog2vl] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
+    /* Footer styling */
+    .footer[b-spbznog2vl] {
+      background-color: rgba(0, 0, 0, 0.5) !important; /* Transparent black */
+      color: darkgoldenrod !important;
+      text-align: center !important;
+      padding: 15px 0 !important;
+      position: fixed !important; /* Fixed at the bottom */
+      bottom: 0 !important;
+      width: 100% !important;
+      font-size: 0.9rem !important;
+      border-top: 1px solid darkgoldenrod !important; /* Adds a slight separator line */
+    }
 
-button.accept-policy[b-spbznog2vl] {
-  font-size: 1rem;
-  line-height: inherit;
-}
+    .footer a[b-spbznog2vl] {
+      color: darkgoldenrod !important;
+      text-decoration: none !important;
+    }
 
-.footer[b-spbznog2vl] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
-}
+    .footer a:hover[b-spbznog2vl] {
+      color: goldenrod !important;
+      text-decoration: underline !important; /* Add underline effect on hover */
+    }
+
+    /* Miscellaneous adjustments */
+    body[b-spbznog2vl] {
+      margin: 0 !important;
+      padding-bottom: 60px !important; /* Prevent footer overlap with content */
+    }
+
+    /* Ensure buttons in navbar have gold styling */
+    .navbar button[b-spbznog2vl] {
+      background-color: transparent !important;
+      color: darkgoldenrod !important;
+      border: 1px solid darkgoldenrod !important;
+      padding: 5px 10px !important;
+      border-radius: 5px !important;
+      font-size: 0.9rem !important;
+    }
+
+    .navbar button:hover[b-spbznog2vl] {
+      color: black !important;
+      background-color: goldenrod !important;
+      border-color: goldenrod !important;
+    }
+    
+

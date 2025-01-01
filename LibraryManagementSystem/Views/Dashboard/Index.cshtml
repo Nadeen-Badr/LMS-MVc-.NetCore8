@@ -7,10 +7,75 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<head>
+    <style>
+        /* Apply a background image to the body */
+        body {
+            background-image: url('/images/Dashboard.jpg'); /* Update the path to match your image location */
+            background-size: cover; /* Make sure the image covers the entire page */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            height: 100vh; /* Fit the viewport height */
+            margin: 0; /* Remove default margins */
+            font-family: Arial, sans-serif; /* Optional: Set a clean font */
+        }
+
+          /* Style the main content to make it readable */
+        .content {
+            background-color: rgba(0, 0, 0, 0.5) !important; /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 80%; /* Adjust the width as needed */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+             color: darkgoldenrod !important;
+        }
+        /* Table Header Styling */
+table th {
+  background-color: rgba(0, 0, 0, 0.2); /* Slight dark background */
+  color: darkgoldenrod !important; /* Dark gold text */
+  text-align: center;
+  padding: 10px;
+}
+
+/* Table Body Styling */
+table td {
+  color: darkgoldenrod !important; /* Dark gold text */
+  text-align: center;
+  padding: 8px;
+}
+
+/* Table Styling */
+table.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Border for Tables */
+table.table-bordered th, table.table-bordered td {
+  border: 1px solid darkgoldenrod; /* Dark gold border */
+}
+
+/* Hover Effect on Table Rows */
+table tbody tr:hover {
+  background-color: rgba(255, 223, 0, 0.1); /* Light gold background on hover */
+}
+
+/* Table Title Styling */
+h3 {
+  color: darkgoldenrod; /* Dark gold text for table titles */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+   
+    </style>
+</head>
 
 @* Include Bootstrap CSS *@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-
+<div class="content">
 <div class="container mt-4">
     <h2 class="text-center" id="LibraryManagementDashboard">Library Management Dashboard</h2>
 
@@ -35,7 +100,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th id="Status">Status</th>
+                        <th id="Ss">Status</th>
                         <th id="Count">Count</th>
                     </tr>
                 </thead>
@@ -74,7 +139,7 @@
         </div>
     </div>
 </div>
-
+</div>
 @* Chart.js Script to draw the charts *@
 <script>
     window.onload = function() {
@@ -93,7 +158,7 @@
                     datasets: [{
                         label: 'Book Statuses',
                         data: statusCounts,
-                        backgroundColor: ['green', 'yellow', 'red'], // Colors for Available, Rented, Sold
+                        backgroundColor: ['darkgreen', 'darkgoldenrod', 'darkred'], // Colors for Available, Rented, Sold
                         borderColor: '#ffffff',
                         borderWidth: 1
                     }]

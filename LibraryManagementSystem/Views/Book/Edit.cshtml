@@ -1,5 +1,43 @@
 @model LibraryManagementSystem.Models.Book
+<style>
+     
+        /* Apply a background image to the body */
+        body {
+            background-image: url('/images/edit.jpg'); /* Update the path to match your image location */
+            background-size: cover; /* Make sure the image covers the entire page */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            height: 100vh; /* Fit the viewport height */
+            margin: 0; /* Remove default margins */
+            font-family: Arial, sans-serif; /* Optional: Set a clean font */
+        }
 
+          /* Style the main content to make it readable */
+        .content {
+            background-color: rgba(0, 0, 0, 0.5) !important; /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 80%; /* Adjust the width as needed */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+             color: darkgoldenrod !important;
+        }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var status = '@Model.Status';
+        var select = document.getElementById('status');
+        if (select) {
+            for (var i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === status) {
+                    select.options[i].selected = true;
+                    break;
+                }
+            }
+        }
+    });
+</script>
+<div class="content">
 <h2>Edit Book</h2>
 
 <form asp-action="Edit" method="post" enctype="multipart/form-data">
@@ -26,15 +64,23 @@
     </select>
 </div>
 
-
-     <div class="form-group">
-    <label for="Status">Status</label>
-    <select class="form-control" asp-for="Status">
+<div>Status</div>
+@* <div class="form-group">
+    <label for="status">Status</label>
+    <select class="form-control" id="status" name="status">
         <option value="Available" selected="@((Model.Status == "Available") ? "selected" : "")">Available</option>
-        <option value="Rented" selected="@((Model.Status == "Rented") ? "selected" : "")">Rented</option>
+        <option value="Rented"  selected="@((Model.Status == "Rented") ? "selected" : "")">Rented</option>
         <option value="Sold" selected="@((Model.Status == "Sold") ? "selected" : "")">Sold</option>
     </select>
-    </div>
+</div> *@
+<select class="form-control" id="status" name="status">
+    <option value="Available" >Available</option>
+    <option value="Rented">Rented</option>
+    <option value="Sold">Sold</option>
+</select>
+
+
+
 
 
      <div class="form-group">
@@ -56,3 +102,4 @@
     </div>
     <button type="submit" class="btn btn-primary" id="Save">Save</button>
 </form>
+</div>

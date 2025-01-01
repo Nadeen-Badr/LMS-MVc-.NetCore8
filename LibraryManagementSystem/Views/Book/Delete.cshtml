@@ -1,5 +1,29 @@
 @model LibraryManagementSystem.Models.Book
+<style>
+     
+        /* Apply a background image to the body */
+        body {
+            background-image: url('/images/Delete.jpg'); /* Update the path to match your image location */
+            background-size: cover; /* Make sure the image covers the entire page */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            height: 100vh; /* Fit the viewport height */
+            margin: 0; /* Remove default margins */
+            font-family: Arial, sans-serif; /* Optional: Set a clean font */
+        }
 
+          /* Style the main content to make it readable */
+        .content {
+            background-color: rgba(0, 0, 0, 0.5) !important; /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 80%; /* Adjust the width as needed */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+             color: darkgoldenrod !important;
+        }
+</style>
+<div class="content">
 <h2>Delete Book</h2>
 
 <p>Are you sure you want to delete the book titled "<strong>@Model.Title</strong>"?</p>
@@ -9,3 +33,4 @@
     <button type="submit" id="Delete" class="btn btn-danger">Delete</button>
     <a href="@Url.Action("Index", "Book")"  id="Cancel"class="btn btn-secondary">Cancel</a>
 </form>
+</div>

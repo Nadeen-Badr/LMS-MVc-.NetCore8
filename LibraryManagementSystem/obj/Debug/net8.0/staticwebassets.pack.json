@@ -13,12 +13,36 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\Dashboard.jpg",
+      "PackagePath": "staticwebassets\\images\\Dashboard.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\Delete.jpg",
+      "PackagePath": "staticwebassets\\images\\Delete.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\create.jpg",
+      "PackagePath": "staticwebassets\\images\\create.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\details.jpg",
+      "PackagePath": "staticwebassets\\images\\details.jpg"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\edit.jpg",
+      "PackagePath": "staticwebassets\\images\\edit.jpg"
+    },
+    {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\g.jpg",
       "PackagePath": "staticwebassets\\images\\g.jpg"
     },
     {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\github.png",
       "PackagePath": "staticwebassets\\images\\github.png"
+    },
+    {
+      "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\home.jpg",
+      "PackagePath": "staticwebassets\\images\\home.jpg"
     },
     {
       "Id": "D:\\.NetProjects\\LibraryManagementSystem\\wwwroot\\images\\ln.jpg",
